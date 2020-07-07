@@ -11,6 +11,12 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <%= link_to('Home', root_path, method: :get, class: "btn-primary") %> ||
+      <%= link_to('Import CSV', import_csv_path, method: :get, class: "btn-primary") %> ||
+      <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "btn-primary pull-right") %>
+      <%= flash[:notice]%>
+    <% end %>
     <%= yield %>
   </body>
 </html>
